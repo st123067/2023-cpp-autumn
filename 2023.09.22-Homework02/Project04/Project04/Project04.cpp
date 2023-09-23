@@ -15,6 +15,6 @@ int main(int argc, char* argv[])
     c = ((n % 60) % 20) / 10;
     d = (((n % 60) % 20) % 10) / 5;
     e = ((((n % 60) % 20) % 10) % 5);
-    std::cout << e<< " " << d << " " << c << " " << b << " " << a << std::endl;
+    std::cout << e << " " << d << " " << c << " " << b << " " << a << std::endl;
     return EXIT_SUCCESS;
 }

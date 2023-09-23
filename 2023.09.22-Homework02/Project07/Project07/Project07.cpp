@@ -38,7 +38,8 @@ int main(int argc, char* argv[])
                 break;
             case 2: std::cout << "II"; 
                 break;
-            case 3: std::cout << "III"; break;
+            case 3: std::cout << "III";
+                break;
             case 4: std::cout << "IV"; 
                 break;
             case 5: std::cout << "V"; 

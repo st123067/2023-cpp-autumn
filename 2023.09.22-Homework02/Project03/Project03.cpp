@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
         x = -b / a;
         std::cout << x << std::endl;
     }
-    else if ((a == 0) || (b * c == a * d))
+    else if ((b * c == a * d) || (a == 0))
     {
         std::cout << "NO" << std::endl;
     }
