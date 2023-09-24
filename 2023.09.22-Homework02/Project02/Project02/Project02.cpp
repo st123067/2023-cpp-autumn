@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
     int b = 0;
     std::cin >> a;
     std::cin >> b;
-    if ((a == 1) && (b ==1))  
+    if ((a == 1) && (b == 1))  
     {
         std::cout << "YES" << std::endl;
     }
