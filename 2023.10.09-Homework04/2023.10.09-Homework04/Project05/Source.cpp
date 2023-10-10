@@ -4,7 +4,6 @@
 
 int main(int, char**)
 {
-	int b = 0;
 	int n = 0;
 	std::cin >> n;
 	int* a = (int*)malloc(sizeof(int) * n);

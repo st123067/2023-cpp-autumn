@@ -4,8 +4,6 @@
 
 int main(int, char**)
 {
-	int b = 0;
-	int c = 0;
 	int d = 0;
 	int e = 0;
 	int n = 0;
@@ -15,8 +13,13 @@ int main(int, char**)
 	{
 		std::cin >> *(a + i);
 	}
+	int b = 0;
 	b = *(a + 0);
+
+	int c = 0;
 	c = *(a + 0);
+	int d = 0;
+	int e = 0;
 	for (int j = 0; j < n; ++j)
 	{
 		if (*(a + j) >= b)

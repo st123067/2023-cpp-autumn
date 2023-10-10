@@ -4,7 +4,6 @@
 
 int main(int, char**)
 {
-	int b = 0;
 	int n = 0;
 	std::cin >> n;
 	int* a = (int*)malloc(sizeof(int) * n);
@@ -12,6 +11,7 @@ int main(int, char**)
 	{
 		std::cin >> *(a + i);
 	}
+	int b = 0;
 	for (int j = 0; j < n; ++j)
 	{
 		b = *(a + 0);
