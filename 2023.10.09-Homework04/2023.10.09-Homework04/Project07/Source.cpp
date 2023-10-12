@@ -7,34 +7,32 @@ int main(int, char**)
 	int n = 0;
 	std::cin >> n;
 	int* a = (int*)malloc(sizeof(int) * n);
-	for (int i = 0; i < n; ++i)
-	{
-		std::cin >> *(a + i);
-	}
-	int d = 0;
-	for (int j = 0; j < n; ++j)
-	{
-		if (*(a + j) > 0)
-		{
-			++d;
-		}
-	}
-	int c = 0;
-	c = d;
+    for (int i = 0; i < n; ++i)
+    {
+        std::cin >> *(a + i);
+    }
+    for(int i = 0; i < n; ++i)
+    {
+        if (*(a + i) < 0)
+        {
+            for (int j = i; j < n - 1; ++j)
+            {
+                *(a + i) = *(a + i + 1);
+            }
+            --n;
+        }
+    }
+    int* b = (int*)malloc(n * sizeof(int));
+    for (int i = 0; i < n; ++i)
+    {
+        *(b + i) = *(a + i);
+    }
+    free(a);
+    a = b;
 
-	int* e = (int*)malloc(sizeof(int) * n);
-	for (int k = 0; k < d; ++k)
-	{
-		if (*(a + k) > 0)
-		{
-			*(e + k) = *(a + k);
-		}
-	}
-	for (int f = 0; f < c; ++f)
-	{
-		std::cout << *(e + f) << " ";
-	}
-	free(a);
-	free(e);
+    for (int i = 0; i < n; ++i)
+    {
+        printf("%d ", *(a + i));
+    }
 	return EXIT_SUCCESS;
 }
