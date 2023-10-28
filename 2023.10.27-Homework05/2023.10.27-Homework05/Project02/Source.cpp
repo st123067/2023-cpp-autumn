@@ -63,6 +63,7 @@ int main(int argc, char* argv[])
             }
             case 8:
             {
+                std::cout << "Input n : ";
                 int n = 0;
                 std::cin >> n;
                 addingRandomElements(a, len, n);
