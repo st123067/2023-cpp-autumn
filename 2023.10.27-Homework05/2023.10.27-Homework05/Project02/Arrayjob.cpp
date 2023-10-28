@@ -98,7 +98,7 @@ void printMenu()
 
 
 }
-void sort_ascending_array(int*& a, int& len)
+void sortAscendingArray(int*& a, int& len)
 {
     for (int i = 1; i < len; ++i)
     {
@@ -114,7 +114,7 @@ void sort_ascending_array(int*& a, int& len)
         }
     }
 }
-void swapelementsMinMax(int*& a, int len)
+void swapElementsMinMax(int*& a, int len)
 {
     if (a == nullptr)
     {

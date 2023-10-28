@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
             }
             case 4:
             {
-                sort_ascending_array(a, len);
+                sortAscendingArray(a, len);
             }
             case 5:
             {
@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
             }
             case 6:
             {
-                swapelementsMinMax(a, len);
+                swapElementsMinMax(a, len);
             }
             case 7:
             {
