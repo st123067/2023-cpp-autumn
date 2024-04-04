@@ -1,49 +1,68 @@
+#include <iostream>
+#define N 10
 
-#include<iostream>
+using namespace std;
 
-void shift(int from, int to);
-
-void hanoi(int n, int from, int to);
-
-void sort();
-
-int a[4]{ 0 };
-int** b = new int* [4] {nullptr, new int[10], new int[10], new int[10]};
-
-int main(int argc, char* argv[])
+int size(int* mas)
 {
-    std::cin >> a[1];
-    for (int i = a[1] - 1; i >= 0; --i)
-    {
-        std::cin >> b[1][i];
-    }
-    sort();
-    for (int i = a[1] - 1; i >= 0; --i)
-    {
-        hanoi(a[1], 1, 2);
-    }
-    return EXIT_SUCCESS;
+    for (int i = 0; i < N; i++)
+        if (mas[i] == 0)
+            return i;
+    return N;
 }
 
-void shift(int from = 1, int to = 3)
+void reverse(int* mas)
 {
-    std::cout << b[from][a[from] - 1] << " " << from << " " << to << std::endl;
-    b[to][a[to]++] = b[from][--a[from]];
+    int s = size(mas);
+    for (int i = 0; i < s / 2; i++)
+        swap(mas[i], mas[s - 1 - i]);
 }
 
-void hanoi(int n, int from = 1, int to = 3)
+void shift(int* rows[], int from, int to)
 {
-    if (n == 0)
+    from--;
+    to--;
+    int sizes[]{ size(rows[0]), size(rows[1]), size(rows[2]) };
+    if (sizes[to] == N || sizes[from] == 0)
+        printf("error");
+    rows[to][sizes[to]] = rows[from][sizes[from] - 1];
+    rows[from][sizes[from] - 1] = 0;
+    cout << rows[to][sizes[to]] << ' ' << from + 1 << ' ' << to + 1 << endl;
+}
+
+int read_from_console(int* rows[])
+{
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> rows[0][i];
+    reverse(rows[0]);
+    cout << endl;
+    return n;
+}
+
+void solve(int* rows[], int n)
+{
+    int sizeA = n;
+    for (int i = n; i >= 1; i--)
     {
-        return;
+        int k = 0;
+        while (rows[0][sizeA - 1 - k] != i)
+        {
+            shift(rows, 1, 2);
+            k++;
+        }
+        shift(rows, 1, 3);
+        while (k-- > 0)
+            shift(rows, 2, 1);
+        sizeA--;
     }
-    int res = 6 - from - to;
-    hanoi(n - 1, from, res);
-    shift(from, to);
-    hanoi(n - 1, res, to);
 }
 
-void sort()
+int main()
 {
-
+    int A[N]{}, B[N]{}, C[N]{};
+    int* rows[]{ A, B, C };
+    int n = read_from_console(rows);
+    solve(rows, n);
 }
