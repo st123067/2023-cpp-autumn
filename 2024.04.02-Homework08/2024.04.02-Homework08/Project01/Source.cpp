@@ -1,4 +1,19 @@
 #include<iostream>
+struct SEdge {
+    int a;
+    int b;
+    int w;
+    SEdge(int a = 0, int b = 0, int w = 1) : a(a), b(b), w(w) {}
+    SEdge(const SEdge& src) : a(src.a), b(src.b), w(src.w) {}
+    ~SEdge() {}
+    void set(int a, int b, int w)
+    {
+        this->a = a;
+        this->b = b;
+        this->w = w;
+    }
+    friend std::ostream& operator<<(std::ostream& stream, const SEdge& edge);
+};
 class CGraph 
 {
 
